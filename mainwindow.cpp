@@ -88,6 +88,7 @@ void MainWindow::Key_Delete_clicked()
 
 void MainWindow::on_actionOpen_triggered()
 {
+    // Open the file
     QFile file("liste.csv");
     if (file.open(QFile::ReadOnly | QFile::Text)) {
         QTextStream in(&file);
