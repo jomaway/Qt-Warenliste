@@ -5,6 +5,7 @@
 #include <QFile>
 #include <QTextStream>
 #include <QDebug>
+#include <QFileDialog>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -88,8 +89,12 @@ void MainWindow::Key_Delete_clicked()
 
 void MainWindow::on_actionOpen_triggered()
 {
+    // Open the File Dialog -> returns a fileName
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Open a list"), "", tr("CSV Files(*.csv)"));
+    // check if filename is empty.
+    if (fileName.isEmpty()) { return; }
     // Open the file
-    QFile file("liste.csv");
+    QFile file(fileName);
     if (file.open(QFile::ReadOnly | QFile::Text)) {
         QTextStream in(&file);
         this->ui->tableProducts->setRowCount(0);
@@ -110,7 +115,12 @@ void MainWindow::on_actionOpen_triggered()
 
 void MainWindow::on_actionSave_triggered()
 {
-    QFile file("liste.csv");
+    // Open the File Dialog -> returns the FileName
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Save the list"), "", tr("CSV Files(*.csv)"));
+    // check if filename is empty.
+    if (fileName.isEmpty()) { return; }
+    // Open file
+    QFile file(fileName);
     if (file.open(QFile::WriteOnly | QFile::Truncate | QFile::Text)) {
         QTextStream out(&file);
         // Get data from widget.
