@@ -100,16 +100,20 @@ void MainWindow::on_actionOpen_triggered()
         this->ui->tableProducts->setRowCount(0);
         // read line by line untill eof
         while(!in.atEnd()) {
+            // Read a line into the line variable (type of QString)
             auto line = in.readLine();
+            // split the Qstring into multiple Qstrings. Uses a comma as delimiter
+            // this returns a QStringList
+            // Exmaple: "0001, Artikel, 0.00" -> "0001" and "Artikel" and "0.00"
             auto values = line.split(',');
-            // Add line to table.
+            // Add line to table by using the addRow method
             addRow(values.at(0), values.at(1), values.at(2));
         }
         // close the file
         file.close();
         this->ui->statusbar->showMessage(tr("List opened"));
     } else {
-        this->ui->statusbar->showMessage(tr("could not open the specified file: (liste.csv)"));
+        this->ui->statusbar->showMessage(tr("could not open the specified file:"));
     }
 }
 
@@ -117,30 +121,40 @@ void MainWindow::on_actionSave_triggered()
 {
     // Open the File Dialog -> returns the FileName
     QString fileName = QFileDialog::getSaveFileName(this, tr("Save the list"), "", tr("CSV Files(*.csv)"));
-    // check if filename is empty.
+    // check if filename is empty and cancel saving
     if (fileName.isEmpty()) { return; }
+
     // Open file
     QFile file(fileName);
     if (file.open(QFile::WriteOnly | QFile::Truncate | QFile::Text)) {
+        // Create an TextStream to write to the file! Takes the filehandler as argument.
         QTextStream out(&file);
         // Get data from widget.
+        // Use two loops first for the rows -> second for the columns!
         for (int row = 0; row<this->ui->tableProducts->rowCount(); ++row) {
             for (int col=0; col<this->ui->tableProducts->columnCount() ; ++col) {
+                // Get text from the given cell and replace all commas with points.
+                // value is of type  QString.
                 auto value = this->ui->tableProducts->item(row,col)->text().replace(',','.');
+                // write value to the textstream
                 out << value;
                 // add a comma after each element, except the last one!
                 if ( col != this->ui->tableProducts->columnCount() -1) {
                     out << ",";
                 }
             }
-            // New line
+            // Add a new line
             out << Qt::endl;
         }
+        // flush so everything get's written to the file!
         file.flush();
+        // REMEMBER to close the file if you opened it!
         file.close();
 
+        // Write a notification to the status bar!
         this->ui->statusbar->showMessage(tr("List saved"));
     } else {
-        this->ui->statusbar->showMessage(tr("could not open the specified file: (liste.csv)"));
+        // On error show message on the statusbar!
+        this->ui->statusbar->showMessage(tr("could not open the specified file:"));
     }
 }
