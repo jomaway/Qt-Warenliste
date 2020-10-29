@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>778</width>
+    <height>374</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Warenliste</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout" columnstretch="1,0">
+    <item row="0" column="0">
+     <widget class="QTableWidget" name="tableProducts">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="sortingEnabled">
+       <bool>true</bool>
+      </property>
+      <attribute name="horizontalHeaderVisible">
+       <bool>false</bool>
+      </attribute>
+      <attribute name="horizontalHeaderCascadingSectionResizes">
+       <bool>false</bool>
+      </attribute>
+      <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+       <bool>true</bool>
+      </attribute>
+      <attribute name="horizontalHeaderStretchLastSection">
+       <bool>false</bool>
+      </attribute>
+      <attribute name="verticalHeaderVisible">
+       <bool>false</bool>
+      </attribute>
+      <row>
+       <property name="text">
+        <string>1</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>Neue Zeile</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>Neue Zeile</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>Neue Zeile</string>
+       </property>
+      </row>
+      <column>
+       <property name="text">
+        <string>Warennr.</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Bezeichnung</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Preis</string>
+       </property>
+      </column>
+      <item row="0" column="0">
+       <property name="text">
+        <string>0001</string>
+       </property>
+       <property name="flags">
+        <set>ItemIsSelectable|ItemIsDragEnabled|ItemIsDropEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+       </property>
+      </item>
+      <item row="0" column="1">
+       <property name="text">
+        <string>Füller</string>
+       </property>
+      </item>
+      <item row="0" column="2">
+       <property name="text">
+        <string>9,95</string>
+       </property>
+      </item>
+      <item row="1" column="0">
+       <property name="text">
+        <string>0012</string>
+       </property>
+       <property name="flags">
+        <set>ItemIsSelectable|ItemIsDragEnabled|ItemIsDropEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+       </property>
+      </item>
+      <item row="1" column="1">
+       <property name="text">
+        <string>Kugelschreiber</string>
+       </property>
+      </item>
+      <item row="1" column="2">
+       <property name="text">
+        <string>2,50</string>
+       </property>
+      </item>
+      <item row="2" column="0">
+       <property name="text">
+        <string>0108</string>
+       </property>
+       <property name="flags">
+        <set>ItemIsSelectable|ItemIsDragEnabled|ItemIsDropEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+       </property>
+      </item>
+      <item row="2" column="1">
+       <property name="text">
+        <string>Wacom Grafik Tablet</string>
+       </property>
+      </item>
+      <item row="2" column="2">
+       <property name="text">
+        <string>79,00</string>
+       </property>
+      </item>
+      <item row="3" column="0">
+       <property name="text">
+        <string>8029</string>
+       </property>
+       <property name="flags">
+        <set>ItemIsSelectable|ItemIsDragEnabled|ItemIsDropEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+       </property>
+      </item>
+      <item row="3" column="1">
+       <property name="text">
+        <string>Arduino Uno</string>
+       </property>
+      </item>
+      <item row="3" column="2">
+       <property name="text">
+        <string>19,99</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QGroupBox" name="groupBox">
+      <property name="title">
+       <string>New Item</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLineEdit" name="leditID">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="placeholderText">
+          <string>ID-Nr.</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="leditDescription">
+         <property name="placeholderText">
+          <string>Bezeichnung</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="leditCosts">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="placeholderText">
+          <string>0 €</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnAdd">
+         <property name="text">
+          <string>&amp;Add</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>778</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuDatei">
+    <property name="title">
+     <string>Datei</string>
+    </property>
+    <addaction name="actionOpen"/>
+    <addaction name="actionSave"/>
+   </widget>
+   <addaction name="menuDatei"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionOpen">
+   <property name="text">
+    <string>Open</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </action>
+ </widget>
+ <tabstops>
+  <tabstop>leditID</tabstop>
+  <tabstop>leditDescription</tabstop>
+  <tabstop>leditCosts</tabstop>
+  <tabstop>btnAdd</tabstop>
+  <tabstop>tableProducts</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
