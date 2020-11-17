@@ -1,6 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include /*FIXME*/
+
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -25,6 +27,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    InventoryModel *model;
     void clearAllLineEditFields();
     void deleteArtikel(int rowIndex);
     void addRow(QString id, QString desc, QString cost);

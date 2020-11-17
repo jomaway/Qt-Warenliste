@@ -16,139 +16,7 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout" columnstretch="1,0">
     <item row="0" column="0">
-     <widget class="QTableWidget" name="tableProducts">
-      <property name="maximumSize">
-       <size>
-        <width>16777215</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="sortingEnabled">
-       <bool>true</bool>
-      </property>
-      <attribute name="horizontalHeaderVisible">
-       <bool>false</bool>
-      </attribute>
-      <attribute name="horizontalHeaderCascadingSectionResizes">
-       <bool>false</bool>
-      </attribute>
-      <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
-       <bool>true</bool>
-      </attribute>
-      <attribute name="horizontalHeaderStretchLastSection">
-       <bool>false</bool>
-      </attribute>
-      <attribute name="verticalHeaderVisible">
-       <bool>false</bool>
-      </attribute>
-      <row>
-       <property name="text">
-        <string>1</string>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string>Neue Zeile</string>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string>Neue Zeile</string>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string>Neue Zeile</string>
-       </property>
-      </row>
-      <column>
-       <property name="text">
-        <string>Warennr.</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Bezeichnung</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Preis</string>
-       </property>
-      </column>
-      <item row="0" column="0">
-       <property name="text">
-        <string>0001</string>
-       </property>
-       <property name="flags">
-        <set>ItemIsSelectable|ItemIsDragEnabled|ItemIsDropEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
-       </property>
-      </item>
-      <item row="0" column="1">
-       <property name="text">
-        <string>Füller</string>
-       </property>
-      </item>
-      <item row="0" column="2">
-       <property name="text">
-        <string>9,95</string>
-       </property>
-      </item>
-      <item row="1" column="0">
-       <property name="text">
-        <string>0012</string>
-       </property>
-       <property name="flags">
-        <set>ItemIsSelectable|ItemIsDragEnabled|ItemIsDropEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
-       </property>
-      </item>
-      <item row="1" column="1">
-       <property name="text">
-        <string>Kugelschreiber</string>
-       </property>
-      </item>
-      <item row="1" column="2">
-       <property name="text">
-        <string>2,50</string>
-       </property>
-      </item>
-      <item row="2" column="0">
-       <property name="text">
-        <string>0108</string>
-       </property>
-       <property name="flags">
-        <set>ItemIsSelectable|ItemIsDragEnabled|ItemIsDropEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
-       </property>
-      </item>
-      <item row="2" column="1">
-       <property name="text">
-        <string>Wacom Grafik Tablet</string>
-       </property>
-      </item>
-      <item row="2" column="2">
-       <property name="text">
-        <string>79,00</string>
-       </property>
-      </item>
-      <item row="3" column="0">
-       <property name="text">
-        <string>8029</string>
-       </property>
-       <property name="flags">
-        <set>ItemIsSelectable|ItemIsDragEnabled|ItemIsDropEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
-       </property>
-      </item>
-      <item row="3" column="1">
-       <property name="text">
-        <string>Arduino Uno</string>
-       </property>
-      </item>
-      <item row="3" column="2">
-       <property name="text">
-        <string>19,99</string>
-       </property>
-      </item>
-     </widget>
+     <widget class="QTableView" name="inventoryView"/>
     </item>
     <item row="0" column="1">
      <widget class="QGroupBox" name="groupBox">
@@ -230,7 +98,6 @@
   <tabstop>leditDescription</tabstop>
   <tabstop>leditCosts</tabstop>
   <tabstop>btnAdd</tabstop>
-  <tabstop>tableProducts</tabstop>
  </tabstops>
  <resources/>
  <connections/>
