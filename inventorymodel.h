@@ -64,6 +64,9 @@ public:
     void add(Article article);
     void remove(int index);
 
+    bool saveTo(QString filename);
+    bool openFrom(QString filename);
+
 private:
     // TODO: Find out where this variable is used and set it to a correct value!
     static const int COLUMNS = /*FIXME*/;

@@ -92,3 +92,56 @@ void InventoryModel::remove(int index)
     this->productList.removeAt(index);
     /*FIXME*/
 }
+
+
+bool InventoryModel::saveTo(QString filename)
+{
+    // Open file
+    QFile file(filename);
+    if (file.open(QFile::WriteOnly | QFile::Truncate | QFile::Text)) {
+        // Create an TextStream to write to the file! Takes the filehandler as argument.
+        QTextStream out(&file);
+        for (auto article : productList) {
+            out << article.id << "," << article.desc << "," << article.price << "," << article.count << Qt::endl;
+        }
+        // Make sure everything get's written to the file.
+        /*FIXME*/
+
+        // REMEMBER to close the file if you opened it!
+        file.close();
+        return true;
+    }else {
+        return false;
+    }
+}
+
+bool InventoryModel::openFrom(QString filename)
+{
+    // Open the file
+    QFile file(filename);
+    if (file.open(QFile::ReadOnly | QFile::Text)) {
+        // clear current list.
+        beginRemoveRows(QModelIndex(), 0, productList.count()-1);
+        this->productList.clear();
+        endRemoveRows();
+
+        // create TextStream
+        QTextStream in(&file);
+        // read line by line untill eof
+        while(!in.atEnd()) {
+            // Read a line into the line variable (type of QString)
+            auto line = in.readLine();
+            // split the Qstring into multiple Qstrings. Uses a comma as delimiter
+            // this returns a QStringList
+            // Exmaple: "0001, Artikel, 0.00" -> "0001" and "Artikel" and "0.00"
+            auto values = line.split(',');
+            // Add line to table by using the addRow method
+            add(Article({values.at(0).toInt(), values.at(1), values.at(2).toDouble(), values.at(3).toInt()}));
+        }
+        // close the file
+        file.close();
+        return true;
+    } else {
+        return false;
+    }
+}

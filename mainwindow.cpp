@@ -87,3 +87,32 @@ void MainWindow::on_actionSave_triggered()
 {
     //FIXME
 }
+
+void MainWindow::on_actionOpen_triggered()
+{
+    // Open the File Dialog -> returns a fileName
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Open a list"), "", tr("CSV Files(*.csv)"));
+    // check if filename is empty.
+    if (fileName.isEmpty()) { return; }
+    if (/*FIXME*/) {
+        this->ui->statusbar->showMessage(tr("List opened"));
+    } else {
+        this->ui->statusbar->showMessage(tr("could not open the specified file:"));
+    }
+}
+
+void MainWindow::on_actionSave_triggered()
+{
+    // Open the File Dialog -> returns the FileName
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Save the list"), "", tr("CSV Files(*.csv)"));
+    // check if filename is empty and cancel saving
+    if (fileName.isEmpty()) { return; }
+
+    if (model->saveTo(fileName)) {
+        // Write a notification to the status bar!
+        this->ui->statusbar->showMessage(tr("List saved"));
+    } else {
+        // On error show message on the statusbar!
+        this->ui->statusbar->showMessage(tr("could not open the specified file:"));
+    }
+}
